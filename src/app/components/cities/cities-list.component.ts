@@ -21,4 +21,24 @@ export class CitiesListComponent implements OnInit{
             this.displayErrorMessage = res === null || res.length === 0 ? true : false;           
         });  
     }
+
+    removeCity(id: number){
+
+        //Call API to remove city
+        this._citiesService.removeCity(id).subscribe((res) => {
+            this._citiesService.getCity(id).subscribe((r) => {
+            console.log(r.name + " has been removed");     
+            });        
+        });
+        
+        //Remove from list
+        for(let i = 0; i < this.cities.length; ++i){
+            if (this.cities[i].id === id) {
+                this.cities.splice(i, 1);
+            }
+        }
+        
+        //Display error message if no cities available
+        this.displayErrorMessage = this.cities === null || this.cities.length === 0 ? true : false;  
+    }
 }

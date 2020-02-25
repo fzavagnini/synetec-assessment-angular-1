@@ -15,4 +15,12 @@ export class CitiesEndpoint extends BaseService {
     getCities(): Observable<ICity[]> {
         return this._httpClient.get<ICity[]>(this.getBaseUrl() + 'api/cities');        
     }
+
+    getCity(id: number): Observable<ICity> {
+        return this._httpClient.get<ICity>(this.getBaseUrl() + 'api/cities/' + id);        
+    }
+
+    removeCity(id: number) : Observable<void>{
+        return this._httpClient.delete<void>(this.getBaseUrl() + 'api/cities/delete-city/' + id);        
+    }
 }

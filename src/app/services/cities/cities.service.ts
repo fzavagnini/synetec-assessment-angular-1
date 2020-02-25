@@ -10,4 +10,12 @@ export class CitiesService {
     getCities(): Observable<ICity[]>{        
         return this._citiesEndpoint.getCities();
     }
+
+    getCity(id: number): Observable<ICity>{
+        return this._citiesEndpoint.getCity(id)
+    }
+
+    removeCity(id: number){
+        return this._citiesEndpoint.removeCity(id);
+    }
 }
