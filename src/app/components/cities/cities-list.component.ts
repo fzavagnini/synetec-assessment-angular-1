@@ -15,7 +15,10 @@ export class CitiesListComponent implements OnInit{
 
     constructor(private _citiesService: CitiesService) {}
 
-    ngOnInit(): void {        
-        this.displayErrorMessage = this.cities === null || this.cities.length === 0 ? true : false;          
+    ngOnInit(): void {
+        this._citiesService.getCities().subscribe(res => {
+            this.cities = res;
+            this.displayErrorMessage = res === null || res.length === 0 ? true : false;           
+        });  
     }
 }
