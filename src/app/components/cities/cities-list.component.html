@@ -21,7 +21,10 @@
                                 </p>
                             </td>
                         </tr>
-                    </tbody>                   
+                    </tbody>
+                    <div *ngIf="displayErrorMessage">
+                        No cities available
+                    </div>
                 </table>
             </div>           
         </div>

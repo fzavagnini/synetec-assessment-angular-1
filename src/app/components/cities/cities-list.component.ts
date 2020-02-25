@@ -11,9 +11,11 @@ import { CitiesService } from "../../services/cities/cities.service";
 export class CitiesListComponent implements OnInit{
 
     cities: ICity[] = [];
+    displayErrorMessage: boolean;
 
     constructor(private _citiesService: CitiesService) {}
 
     ngOnInit(): void {        
+        this.displayErrorMessage = this.cities === null || this.cities.length === 0 ? true : false;          
     }
 }
