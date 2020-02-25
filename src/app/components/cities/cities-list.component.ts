@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ICity } from "../../models/city.model";
+import { CitiesService } from "../../services/cities/cities.service";
 
 @Component ({
     selector: 'cities-list',
@@ -9,9 +10,10 @@ import { ICity } from "../../models/city.model";
 
 export class CitiesListComponent implements OnInit{
 
-    cities: ICity[];
-    constructor() {}
+    cities: ICity[] = [];
 
-    ngOnInit(): void {
+    constructor(private _citiesService: CitiesService) {}
+
+    ngOnInit(): void {        
     }
 }
